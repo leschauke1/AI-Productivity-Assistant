@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #eef0e8;
+    color: #1b2b24;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .ink-input {
+    @apply w-full rounded-inkwell border border-border-strong bg-panelRaised px-3 py-2.5 text-ink outline-none transition-colors duration-150;
+  }
+  .ink-input:focus {
+    @apply border-ink;
+  }
+  .ink-input::placeholder {
+    @apply text-ink-faint;
+  }
+
+  .ink-label {
+    @apply flex flex-col gap-1.5;
+  }
+  .ink-label > span:first-child {
+    @apply text-[13px] font-semibold text-ink;
+  }
+  .ink-optional {
+    @apply font-normal text-ink-faint text-xs;
+  }
+
+  .primary-btn {
+    @apply cursor-pointer self-start rounded-inkwell border-none bg-gold-dark px-4 py-2.5 text-sm font-semibold text-[#FBF6EC] transition-all duration-150 hover:bg-[#7C5619] active:scale-[0.98] disabled:cursor-progress disabled:bg-ink-faint;
+  }
+
+  .ghost-btn {
+    @apply cursor-pointer rounded-inkwell border border-border-strong bg-transparent px-4 py-2.5 text-[13.5px] text-ink transition-colors duration-150 hover:border-clay hover:text-clay;
+  }
+
+  .icon-btn {
+    @apply cursor-pointer rounded-inkwell border border-border-strong bg-transparent px-3 py-1.5 text-sm text-ink transition-colors duration-150 hover:border-ink;
+  }
+
+  .focus-ring:focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold-dark;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(27, 43, 36, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(27, 43, 36, 0.35);
+}
